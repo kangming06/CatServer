@@ -1,0 +1,21 @@
+name: build
+on:
+  watch:
+    types: [started]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@1.18.2
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
+      - name: setup
+        run: gradle setup
+      - name: build
+        run: gradlew buildCatServer
+      - name: upload
+        uses: actions/upload-artifact@v1
+        with:
+          name: test
+          path: projects/forge/build/libs
