@@ -11,9 +11,9 @@ jobs:
       - name: Branch name
         run: echo running on branch ${GITHUB_REF##*/}
       - name: setup
-        run: gradle setup
+        run: ./gradlew setup
       - name: build
-        run: gradle buildCatServer
+        run: ./gradlew buildCatServer
       - name: upload
         uses: actions/upload-artifact@v3
         with:
