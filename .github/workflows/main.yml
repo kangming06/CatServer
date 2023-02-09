@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@1.18.2
+        uses: actions/checkout@v3
+        with:
+          ref: 1.18.2
       - name: Branch name
         run: echo running on branch ${GITHUB_REF##*/}
       - name: setup
