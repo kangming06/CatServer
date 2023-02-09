@@ -1,5 +1,7 @@
 name: build
-on: []
+on:
+  watch:
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,4 +19,4 @@ jobs:
         with:
           name: test
           path: projects/forge/build/libs
-      
+
